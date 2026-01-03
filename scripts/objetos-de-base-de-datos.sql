@@ -1,0 +1,7 @@
+-- ================================================================
+-- Create the tables, editioning views, triggers, and sequences
+-- Aplication: 
+-- Schema: 
+-- Date: 
+-- Note: 
+-- =================================================================
