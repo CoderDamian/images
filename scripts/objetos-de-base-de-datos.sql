@@ -11,5 +11,5 @@ create table images (
     , content_type varchar2(50)
     , image_data   blob
     , file_size    number
-    , created_at   timestamp
+    , created_at   timestamp default current_timestamp
 );
