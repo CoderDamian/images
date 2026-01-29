@@ -23,14 +23,14 @@ jobs:
           dotnet-version: '10.0.x'
       
       - name: restore dependencies
-        run: dotnet restore src/images-app.slnx
+        run: dotnet restore src/Images-App/images-app.slnx
   
       - name: build (warnings as errors)
-        run: dotnet build src/images-app.slnx --no-restore --warnaserror
+        run: dotnet build src/Images-App/images-app.slnx --no-restore --warnaserror
   
       - name: run test
         working-directory: src
-        run: dotnet test src/images-app.slnx --no-build --verbosity normal
+        run: dotnet test src/Images-App/images-app.slnx --no-build --verbosity normal
   
       - name: Run static analysis (dotnet format)
         run: dotnet format --verify-no-changes
