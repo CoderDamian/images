@@ -4,6 +4,17 @@ using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddDataPersistenceServices();
@@ -21,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+app.UseCors("AllowReactApp");
 
 app.UseHttpsRedirection();
 
